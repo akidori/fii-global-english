@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #eaf6ff;
+  background: #070c16;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 電脳グリッド + スキャンライン背景（Fii の世界観） */
+.cyber-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 600px at 78% -10%, rgba(69, 205, 255, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 8% 110%, rgba(160, 107, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, #080d1a 0%, #070c16 60%, #05080f 100%);
+}
+.cyber-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(120, 220, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 220, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
+  animation: grid-drift 40s linear infinite;
+}
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 44px 44px, 44px 44px; }
+}
+
+/* ガラスパネル */
+.panel {
+  background: rgba(13, 17, 26, 0.72);
+  border: 1px solid rgba(120, 220, 255, 0.16);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(69, 205, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+.panel-hover:hover {
+  border-color: rgba(69, 205, 255, 0.45);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 34px rgba(69, 205, 255, 0.22);
+}
+
+.glow-text {
+  text-shadow: 0 0 8px rgba(57, 197, 255, 0.7);
+}
+
+/* スクロールバー */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(69, 205, 255, 0.25);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+
+/* range スライダー */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(120, 220, 255, 0.2);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #45cdff;
+  box-shadow: 0 0 10px rgba(69, 205, 255, 0.8);
+  cursor: pointer;
+}

@@ -1,0 +1,238 @@
+import type { Scenario } from "@/types";
+
+// ============================================================
+// ロールプレイ・シナリオ。Fii が海外クライアント役を演じる。
+// すべて映像制作の実務場面。難易度 1(選択)〜6(予測不能会話)。
+// ============================================================
+
+export const SCENARIOS: Scenario[] = [
+  {
+    id: "intro",
+    title: "自己紹介",
+    titleEn: "Introduce Yourself",
+    category: "intro",
+    scene: "intro_portfolio",
+    difficulty: 2,
+    clientRole: "海外の中小企業マーケ担当。あなたが何者かを知りたい。",
+    goal: "60秒で「何をする人か」を短く伝える",
+    opening: {
+      fii: "Hi! Thanks for hopping on. So, tell me — what do you do?",
+      jp: "参加ありがとう。まず、あなたは何をしている人？",
+      hint: "I'm a ... / I make ... / I handle ... の3文で。",
+    },
+    questions: [
+      { fii: "Nice. What kind of videos do you usually make?", jp: "いいね。普段どんな動画を作るの？" },
+      { fii: "And which part do you handle yourself?", jp: "どこまで自分でやるの？" },
+      { fii: "Great. Why should we work with you and not someone local?", jp: "地元の人でなくあなたに頼む理由は？" },
+    ],
+    keyPhraseIds: ["in1", "in2", "in3"],
+  },
+  {
+    id: "portfolio",
+    title: "ポートフォリオ説明",
+    titleEn: "Explain Your Portfolio",
+    category: "portfolio",
+    scene: "intro_portfolio",
+    difficulty: 3,
+    clientRole: "実績を見たい海外クライアント。成果を重視。",
+    goal: "誰のため→課題→企画→成果、の順で1本語る",
+    opening: {
+      fii: "Can you walk me through one project you're proud of?",
+      jp: "自信のある案件を1つ説明してくれる？",
+      hint: "Who for → the challenge → what you made → the result。",
+    },
+    questions: [
+      { fii: "What was the biggest challenge there?", jp: "一番の課題は？" },
+      { fii: "What idea did you come up with?", jp: "どんな企画を考えた？" },
+      { fii: "And what results did it bring?", jp: "どんな成果が出た？" },
+    ],
+    keyPhraseIds: ["pf1", "pf2", "pf3", "pf4"],
+  },
+  {
+    id: "first_meeting",
+    title: "初回商談",
+    titleEn: "First Client Meeting",
+    category: "hearing",
+    scene: "first_meeting",
+    difficulty: 4,
+    clientRole: "初対面の海外クライアント。まだ発注は決めていない。",
+    goal: "相手の目的とターゲットを聞き出す",
+    opening: {
+      fii: "We're thinking about a brand video, but honestly we're not sure what we need.",
+      jp: "ブランド動画を考えてるけど、正直何が要るのか分かってなくて。",
+      hint: "まず 'What is the main goal?' から。",
+    },
+    questions: [
+      { fii: "Hmm, good question. I guess... to look more premium?", jp: "うーん、いい質問だね。高級感を出したい、かな？" },
+      { fii: "The audience? Mostly younger customers, I think.", jp: "ターゲット？主に若い層かな。" },
+      { fii: "So, what would you suggest?", jp: "で、あなたなら何を提案する？" },
+    ],
+    keyPhraseIds: ["he1", "he2", "he3", "he4"],
+  },
+  {
+    id: "hearing",
+    title: "課題ヒアリング",
+    titleEn: "Hearing the Real Problem",
+    category: "hearing",
+    scene: "first_meeting",
+    difficulty: 4,
+    clientRole: "課題を言語化できていないクライアント。",
+    goal: "曖昧な要望を具体化する質問を返す",
+    opening: {
+      fii: "We just want something that feels... you know, more emotional.",
+      jp: "なんというか、もっと感情的な感じにしたくて。",
+      hint: "'You mean ...?' で具体を確認。",
+    },
+    questions: [
+      { fii: "Right, like... it should make people feel something real.", jp: "そう、本物の感情を呼ぶような。" },
+      { fii: "Maybe focus on our staff? They have good stories.", jp: "スタッフに焦点を当てるとか？いい話があるんだ。" },
+    ],
+    keyPhraseIds: ["kg2", "kg4", "he3"],
+  },
+  {
+    id: "plan_direction",
+    title: "企画・演出意図の説明",
+    titleEn: "Pitch Your Concept",
+    category: "planning",
+    scene: "plan_direction",
+    difficulty: 5,
+    clientRole: "企画の意図を知りたい決裁者。",
+    goal: "企画の狙いと構成を短い英語で説明する",
+    opening: {
+      fii: "Okay, show me your concept. Why this approach?",
+      jp: "企画を見せて。なぜこのアプローチ？",
+      hint: "'The main goal is ...' から入る。",
+    },
+    questions: [
+      { fii: "Interesting. How does the story actually open?", jp: "面白い。ストーリーはどう始まる？" },
+      { fii: "Why would that keep viewers watching?", jp: "なぜそれで視聴者は見続ける？" },
+      { fii: "Can we make it more premium, though?", jp: "でも、もっと高級感を出せる？" },
+    ],
+    keyPhraseIds: ["pl1", "pl2", "pl3"],
+  },
+  {
+    id: "on_set",
+    title: "撮影現場での指示",
+    titleEn: "Directing on Set",
+    category: "on_set",
+    scene: "on_set",
+    difficulty: 4,
+    clientRole: "撮影に立ち会う出演者/スタッフ。英語で指示が必要。",
+    goal: "現場で短く明確に指示を出す",
+    opening: {
+      fii: "Okay, I'm ready. Where do you want me?",
+      jp: "準備OK。どこに立てばいい？",
+      hint: "短い命令文＋please で。",
+    },
+    questions: [
+      { fii: "Like this? Should I look at you or the camera?", jp: "こう？あなたを見る？カメラを見る？" },
+      { fii: "Got it. Was that take okay?", jp: "了解。今のテイクで大丈夫？" },
+    ],
+    keyPhraseIds: ["os1", "os2", "os3"],
+  },
+  {
+    id: "interview",
+    title: "インタビュー質問",
+    titleEn: "Interviewing a Subject",
+    category: "interview",
+    scene: "on_set",
+    difficulty: 5,
+    clientRole: "密着ドキュメンタリーの被写体。",
+    goal: "感情を引き出す質問を英語で投げる",
+    opening: {
+      fii: "I'm a little nervous, but ask me anything.",
+      jp: "ちょっと緊張してるけど、何でも聞いて。",
+      hint: "オープンな質問で。'What made you ...?'",
+    },
+    questions: [
+      { fii: "That's a hard question... give me a second.", jp: "難しい質問だね…少し待って。" },
+      { fii: "I remember that day very well, actually.", jp: "実はその日のことはよく覚えてる。" },
+    ],
+    keyPhraseIds: ["iv1", "iv2"],
+  },
+  {
+    id: "revision",
+    title: "修正依頼への対応",
+    titleEn: "Handling Revisions",
+    category: "revision",
+    scene: "revision",
+    difficulty: 5,
+    clientRole: "曖昧なフィードバックを出すクライアント。",
+    goal: "曖昧な指摘を具体化し、影響を伝える",
+    opening: {
+      fii: "Hmm, the video feels a bit off. Can you fix it?",
+      jp: "うーん、動画が少し違う感じ。直せる？",
+      hint: "'Which part exactly ...?' で特定する。",
+    },
+    questions: [
+      { fii: "Maybe the middle part is too slow?", jp: "中盤が遅いのかな？" },
+      { fii: "Can you also make it more emotional? And by tomorrow?", jp: "もっと感動的にできる？あと明日までに？" },
+    ],
+    keyPhraseIds: ["rv1", "rv2", "rv3"],
+  },
+  {
+    id: "negotiation",
+    title: "価格・納期交渉",
+    titleEn: "Price & Deadline Negotiation",
+    category: "negotiation",
+    scene: "negotiation",
+    difficulty: 6,
+    clientRole: "予算を抑えたい・急ぎたい海外クライアント。",
+    goal: "条件を守りつつ代替案を出して合意する",
+    opening: {
+      fii: "Your proposal looks good, but it's above our budget. Can you lower it?",
+      jp: "提案は良いけど予算オーバー。下げられる？",
+      hint: "'I can do X, but ...' の型で。",
+    },
+    questions: [
+      { fii: "Okay... and can you still deliver by Friday?", jp: "なるほど…金曜までに納品できる？" },
+      { fii: "What about revisions? How many are included?", jp: "修正は？何回まで込み？" },
+      { fii: "Alright. Let's see if we can make this work.", jp: "よし、まとめられるか見てみよう。" },
+    ],
+    keyPhraseIds: ["ng1", "ng2", "ng3"],
+  },
+  {
+    id: "trouble",
+    title: "トラブル対応",
+    titleEn: "Handling Trouble",
+    category: "revision",
+    scene: "negotiation",
+    difficulty: 6,
+    clientRole: "納品物に不満で少し怒っているクライアント。",
+    goal: "落ち着いて事実確認し、次の一手を示す",
+    opening: {
+      fii: "This isn't what we agreed on. I'm not happy with this.",
+      jp: "これは合意した内容と違う。正直満足していない。",
+      hint: "まず受け止め→事実確認→解決策。",
+    },
+    questions: [
+      { fii: "The tone is completely different from the sample.", jp: "サンプルとトーンが全然違う。" },
+      { fii: "So how are you going to fix this?", jp: "で、どう直すつもり？" },
+    ],
+    keyPhraseIds: ["kg1", "kg5", "rv1"],
+  },
+  {
+    id: "smalltalk",
+    title: "海外クリエイターとの雑談",
+    titleEn: "Small Talk with a Creator",
+    category: "smalltalk",
+    scene: "first_meeting",
+    difficulty: 3,
+    clientRole: "海外のフリーランス映像作家仲間。",
+    goal: "雑談で関係を築き、次につなげる",
+    opening: {
+      fii: "Hey! Long time. How's business on your side these days?",
+      jp: "やあ！久しぶり。最近仕事どう？",
+      hint: "近況＋相手にも質問を返す。",
+    },
+    questions: [
+      { fii: "Nice. Working on anything fun right now?", jp: "いいね。今なにか面白いのやってる？" },
+      { fii: "We should collaborate sometime. What do you think?", jp: "いつか一緒にやろうよ。どう？" },
+    ],
+    keyPhraseIds: ["st1", "st2"],
+  },
+];
+
+export function scenarioById(id: string): Scenario | undefined {
+  return SCENARIOS.find((s) => s.id === id);
+}
