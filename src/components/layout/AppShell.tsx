@@ -39,7 +39,7 @@ export function AppShell({
     <div className="mx-auto flex min-h-screen max-w-6xl">
       <SideNav />
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-10 flex items-center gap-3 border-b border-cyan-core/10 bg-navy-900/70 px-4 py-2.5 backdrop-blur">
+        <header className="safe-x sticky top-0 z-10 flex items-center gap-3 border-b border-cyan-core/10 bg-navy-900/70 px-4 py-2.5 backdrop-blur">
           <div className="flex items-center gap-1.5 text-amber-300" title="連続学習日数">
             <IconFlame width={18} height={18} />
             <span className="text-sm font-bold">{streak}</span>
@@ -61,7 +61,7 @@ export function AppShell({
           </div>
         </header>
 
-        <main className="flex-1 px-4 pb-24 pt-4 lg:pb-8">{children}</main>
+        <main className="safe-x flex-1 px-4 pb-28 pt-4 lg:pb-8">{children}</main>
       </div>
       <BottomNav />
     </div>

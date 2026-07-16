@@ -17,6 +17,19 @@ body {
   background: #070c16;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  /* 横スクロール/端切れの元を断つ（iPhone のノッチ幅ズレ対策） */
+  overflow-x: hidden;
+}
+
+/* iPhone のノッチ/角丸で左右が食われるのを避ける共通余白。
+   ページのルート要素に付ける。上下は各画面のパディングに任せる。 */
+.safe-x {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+/* 下部固定ナビ等がホームインジケーターに被らないための余白。 */
+.safe-b {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.375rem);
 }
 
 /* 電脳グリッド + スキャンライン背景（Fii の世界観） */

@@ -131,7 +131,7 @@ export function BottomNav() {
         </div>
       )}
 
-      <nav className="fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t border-cyan-core/15 bg-navy-800/95 px-1 py-1.5 backdrop-blur lg:hidden">
+      <nav className="safe-b safe-x fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t border-cyan-core/15 bg-navy-800/95 px-1 py-1.5 backdrop-blur lg:hidden">
         {primary.map((it) => {
           const active = isActive(it.href);
           return (

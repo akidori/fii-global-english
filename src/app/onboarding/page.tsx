@@ -165,7 +165,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-xl flex-col justify-center px-5 py-10">
+    <div className="safe-x mx-auto flex min-h-screen max-w-xl flex-col justify-center px-5 py-10">
       {phase === "intro" ? (
         <div className="flex flex-col items-center gap-6 text-center animate-pop-in">
           <FiiAvatar state="happy" size={150} />
