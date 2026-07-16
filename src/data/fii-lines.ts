@@ -2,6 +2,7 @@
 // Fii のセリフ集。人格: 生意気だが成長には真剣なツンデレコーチ。
 // 過剰に褒めない / 文法説教しない / 改善は1つだけ。
 // ============================================================
+import { asset } from "@/lib/base-path";
 
 export type FiiState =
   | "idle"
@@ -48,12 +49,12 @@ export function pick<T>(arr: T[], seed?: number): T {
   return arr[i] ?? arr[0]!;
 }
 
-/** 状態に対応するスプライト画像（public/fii/*.png）。 */
+/** 状態に対応するスプライト画像（public/fii/*.png）。basePath対応。 */
 export const FII_SPRITE: Record<FiiState, string> = {
-  idle: "/fii/idle.png",
-  happy: "/fii/happy.png",
-  thinking: "/fii/thinking.png",
-  sleepy: "/fii/sleepy.png",
-  master: "/fii/master.png",
-  effect: "/fii/effect.png",
+  idle: asset("/fii/idle.png"),
+  happy: asset("/fii/happy.png"),
+  thinking: asset("/fii/thinking.png"),
+  sleepy: asset("/fii/sleepy.png"),
+  master: asset("/fii/master.png"),
+  effect: asset("/fii/effect.png"),
 };

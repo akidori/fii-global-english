@@ -13,10 +13,10 @@ pnpm install          # 初回のみ
 pnpm dev              # http://localhost:3000
 ```
 
-本番ビルド:
+静的書き出し（GitHub Pages 用）:
 
 ```bash
-pnpm build && pnpm start
+pnpm build            # output: "export" → out/ に静的サイトを生成
 ```
 
 検証コマンド:
@@ -24,8 +24,19 @@ pnpm build && pnpm start
 ```bash
 pnpm typecheck        # tsc --noEmit
 pnpm lint             # next lint
-pnpm build            # 本番ビルド（型チェック込み）
+pnpm build            # 静的書き出し（型チェック込み）
 ```
+
+## デプロイ（GitHub Pages・自動）
+
+`main` に push すると GitHub Actions（`.github/workflows/deploy.yml`）が
+`pnpm build` → `out/` を GitHub Pages に自動デプロイする。
+
+- 公開URL: **https://akidori.github.io/fii-global-english/**
+- 静的ホスティングのため **mock モード専用**（AI/`api` は無効。学習・音声通話・保存はすべてブラウザ内で動作）
+- サブパス配下で動くよう `next.config.mjs` で `basePath=/fii-global-english`、
+  生 `<img>` のパスは `src/lib/base-path.ts` の `asset()` で basePath を前置している
+- AI モードや独自ドメインで全機能を使いたい場合は Vercel 等の SSR ホストへ（`api/` を戻す）
 
 ## モード（APIキーなしで全機能が動く）
 
